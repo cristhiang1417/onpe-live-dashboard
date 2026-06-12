@@ -2,28 +2,23 @@ export default function CandidateCard({ candidate, side }) {
   const isLeft = side === "left";
 
   return (
-    <div className="bg-[#131b30] rounded-3xl p-6 text-center shadow-2xl border border-white/5">
+    <div className="bg-[#131b30] rounded-3xl p-6 text-center shadow-2xl border border-white/5 transition-all duration-500 hover:scale-[1.02]">
       <div
-        className="w-32 h-32 rounded-full mx-auto mb-4 shadow-lg"
+        className="w-32 h-32 rounded-full mx-auto mb-4 shadow-lg transition-all duration-1000"
         style={{ backgroundColor: candidate.color }}
       />
 
-      <h2 className="text-3xl font-bold">
-        {candidate.name}
-      </h2>
-
-      <h3 className="text-2xl">
-        {candidate.lastname}
-      </h3>
+      <h2 className="text-3xl font-bold">{candidate.name}</h2>
+      <h3 className="text-2xl">{candidate.lastname}</h3>
 
       <div
-        className="mt-6 text-6xl font-bold"
+        className="mt-6 text-6xl font-bold transition-all duration-700"
         style={{ color: candidate.color }}
       >
         {candidate.percent.toFixed(3)}%
       </div>
 
-      <div className="mt-3 text-xl">
+      <div className="mt-3 text-xl transition-all duration-700">
         {candidate.votes.toLocaleString("en-US")} votos
       </div>
 

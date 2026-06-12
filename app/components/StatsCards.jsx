@@ -10,9 +10,9 @@ export default function StatsCards({ stats }) {
       {items.map((item) => (
         <div
           key={item.label}
-          className="bg-[#131b30] rounded-2xl p-6 text-center border border-white/5"
+          className="bg-[#131b30] rounded-2xl p-6 text-center border border-white/5 transition-all duration-500 hover:scale-[1.02] hover:border-cyan-400/40"
         >
-          <div className="text-4xl font-bold">
+          <div className="text-4xl font-bold transition-all duration-700">
             {item.value.toLocaleString("en-US")}
           </div>
 

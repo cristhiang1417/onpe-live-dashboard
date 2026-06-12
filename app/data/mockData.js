@@ -22,6 +22,10 @@ export const electionData = {
 
   difference: 9788,
 
+  history: [
+    { time: "Inicio", diff: 9788 },
+  ],
+
   stats: {
     sent: 1615,
     pending: 318,
@@ -29,29 +33,9 @@ export const electionData = {
   },
 
   regions: [
-    {
-      name: "LIMA",
-      progress: 96.9,
-      left: 63,
-      right: 37,
-    },
-    {
-      name: "JUNIN",
-      progress: 99.1,
-      left: 45,
-      right: 55,
-    },
-    {
-      name: "LA LIBERTAD",
-      progress: 99.3,
-      left: 58,
-      right: 42,
-    },
-    {
-      name: "LAMBAYEQUE",
-      progress: 99.6,
-      left: 59,
-      right: 41,
-    },
+    { name: "LIMA", progress: 96.9, left: 63, right: 37 },
+    { name: "JUNIN", progress: 99.1, left: 45, right: 55 },
+    { name: "LA LIBERTAD", progress: 99.3, left: 58, right: 42 },
+    { name: "LAMBAYEQUE", progress: 99.6, left: 59, right: 41 },
   ],
 };
