@@ -1,13 +1,13 @@
 import CandidateCard from "./CandidateCard";
 import VsCenter from "./VsCenter";
+import { useElection } from "../context/ElectionContext";
 
-export default function HeroSection({ electionData }) {
+export default function HeroSection() {
+  const electionData = useElection();
+
   return (
     <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 items-center">
-      <CandidateCard
-        candidate={electionData.left}
-        side="left"
-      />
+      <CandidateCard candidate={electionData.left} side="left" />
 
       <VsCenter
         progress={electionData.progress}
@@ -15,10 +15,7 @@ export default function HeroSection({ electionData }) {
         winner={electionData.right.name}
       />
 
-      <CandidateCard
-        candidate={electionData.right}
-        side="right"
-      />
+      <CandidateCard candidate={electionData.right} side="right" />
     </div>
   );
 }

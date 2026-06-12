@@ -20,7 +20,7 @@ export default function MainDashboard() {
 
       <ExecutiveDashboard electionData={electionData} />
 
-      <HeroSection electionData={electionData} />
+      <HeroSection />
 
       <OverviewSection
         left={electionData.left}
