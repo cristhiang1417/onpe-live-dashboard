@@ -1,3 +1,6 @@
+"use client";
+
+import PendingRegions from "./components/PendingRegions";
 import TrendChart from "./components/TrendChart";
 import Header from "./components/Header";
 import CandidateCard from "./components/CandidateCard";
@@ -6,9 +9,11 @@ import ProgressBar from "./components/ProgressBar";
 import StatsCards from "./components/StatsCards";
 import RegionPanel from "./components/RegionPanel";
 
-import { electionData } from "./data/mockData";
+import useElectionData from "./hooks/useElectionData";
 
 export default function Home() {
+
+  const electionData = useElectionData();
   return (
     <main className="min-h-screen bg-[#0b1020] text-white p-8">
       <Header updatedAt={electionData.updatedAt} />
@@ -35,6 +40,7 @@ export default function Home() {
         rightColor={electionData.right.color}
       />
       <TrendChart />
+      <PendingRegions regions={electionData.regions} />
     </main>
   );
 }
