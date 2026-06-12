@@ -9,10 +9,10 @@ import AnalyticsSection from "./sections/AnalyticsSection";
 import GeographySection from "./sections/GeographySection";
 import ExecutiveDashboard from "./executive/ExecutiveDashboard";
 import TwoColumnLayout from "./layout/TwoColumnLayout";
-import useElectionData from "../hooks/useElectionData";
+import { useElection } from "../context/ElectionContext";
 
 export default function MainDashboard() {
-  const electionData = useElectionData();
+  const electionData = useElection();
 
   return (
     <DashboardShell>
