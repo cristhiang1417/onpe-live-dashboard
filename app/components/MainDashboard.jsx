@@ -7,6 +7,7 @@ import LiveUpdates from "./LiveUpdates";
 import OverviewSection from "./sections/OverviewSection";
 import AnalyticsSection from "./sections/AnalyticsSection";
 import GeographySection from "./sections/GeographySection";
+import ExecutiveDashboard from "./executive/ExecutiveDashboard";
 import useElectionData from "../hooks/useElectionData";
 
 export default function MainDashboard() {
@@ -15,6 +16,8 @@ export default function MainDashboard() {
   return (
     <DashboardShell>
       <TopBar updatedAt={electionData.updatedAt} />
+
+      <ExecutiveDashboard electionData={electionData} />
 
       <HeroSection electionData={electionData} />
 
