@@ -8,6 +8,7 @@ import OverviewSection from "./sections/OverviewSection";
 import AnalyticsSection from "./sections/AnalyticsSection";
 import GeographySection from "./sections/GeographySection";
 import ExecutiveDashboard from "./executive/ExecutiveDashboard";
+import TwoColumnLayout from "./layout/TwoColumnLayout";
 import useElectionData from "../hooks/useElectionData";
 
 export default function MainDashboard() {
@@ -27,16 +28,19 @@ export default function MainDashboard() {
         stats={electionData.stats}
       />
 
-      <AnalyticsSection
-        regions={electionData.regions}
-        leftColor={electionData.left.color}
-        rightColor={electionData.right.color}
-        history={electionData.history || []}
+      <TwoColumnLayout
+        left={
+          <AnalyticsSection
+            regions={electionData.regions}
+            leftColor={electionData.left.color}
+            rightColor={electionData.right.color}
+            history={electionData.history || []}
+          />
+        }
+        right={<LiveUpdates />}
       />
 
       <GeographySection regions={electionData.regions} />
-
-      <LiveUpdates />
     </DashboardShell>
   );
 }
