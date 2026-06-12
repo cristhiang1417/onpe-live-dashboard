@@ -40,7 +40,7 @@ export default function Home() {
         leftColor={electionData.left.color}
         rightColor={electionData.right.color}
       />
-      <TrendChart />
+      <TrendChart history={electionData.history || []} />
       <PendingRegions regions={electionData.regions} />
       <PeruMap />
     </main>

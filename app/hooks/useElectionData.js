@@ -4,21 +4,51 @@ import { useEffect, useState } from "react";
 import { electionData } from "../data/mockData";
 
 export default function useElectionData() {
-  const [data, setData] = useState(electionData);
+  const [data, setData] = useState({
+    ...electionData,
+    history: [
+      {
+        time: new Date().toLocaleTimeString("es-PE"),
+        diff: electionData.difference,
+      },
+    ],
+  });
 
   useEffect(() => {
     const interval = setInterval(() => {
       setData((prev) => {
-        const leftVotes = prev.left.votes + Math.floor(Math.random() * 120);
-        const rightVotes = prev.right.votes + Math.floor(Math.random() * 150);
+        // Generar nuevos votos
+        const leftVotes =
+          prev.left.votes + Math.floor(Math.random() * 120);
+
+        const rightVotes =
+          prev.right.votes + Math.floor(Math.random() * 150);
 
         const totalVotes = leftVotes + rightVotes;
 
-        const leftPercent = Number(((leftVotes / totalVotes) * 100).toFixed(3));
-        const rightPercent = Number(((rightVotes / totalVotes) * 100).toFixed(3));
+        // Calcular porcentajes
+        const leftPercent = Number(
+          ((leftVotes / totalVotes) * 100).toFixed(3)
+        );
+
+        const rightPercent = Number(
+          ((rightVotes / totalVotes) * 100).toFixed(3)
+        );
+
+        // Diferencia de votos
+        const difference = Math.abs(
+          rightVotes - leftVotes
+        );
+
+        // Nuevo punto para el gráfico
+        const newPoint = {
+          time: new Date().toLocaleTimeString("es-PE"),
+          diff: difference,
+        };
 
         return {
           ...prev,
+
           updatedAt: new Date().toLocaleTimeString("es-PE"),
 
           left: {
@@ -33,7 +63,12 @@ export default function useElectionData() {
             percent: rightPercent,
           },
 
-          difference: Math.abs(rightVotes - leftVotes),
+          difference,
+
+          history: [
+            ...(prev.history || []),
+            newPoint,
+          ].slice(-20),
         };
       });
     }, 5000);
