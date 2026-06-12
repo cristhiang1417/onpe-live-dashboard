@@ -1,5 +1,6 @@
 "use client";
 
+import PeruMap from "./components/PeruMap";
 import PendingRegions from "./components/PendingRegions";
 import TrendChart from "./components/TrendChart";
 import Header from "./components/Header";
@@ -41,6 +42,7 @@ export default function Home() {
       />
       <TrendChart />
       <PendingRegions regions={electionData.regions} />
+      <PeruMap regions={electionData.regions} />
     </main>
   );
 }
