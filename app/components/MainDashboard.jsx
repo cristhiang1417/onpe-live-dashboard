@@ -29,7 +29,7 @@ export default function MainDashboard() {
         right={<LiveUpdates />}
       />
 
-      <GeographySection regions={electionData.regions} />
+      <GeographySection />
     </DashboardShell>
   );
 }

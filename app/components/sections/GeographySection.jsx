@@ -1,14 +1,13 @@
 import PendingRegions from "../PendingRegions";
 import PeruMap from "../PeruMap";
+import { useElection } from "../../context/ElectionContext";
 
-export default function GeographySection({
-  regions,
-}) {
+export default function GeographySection() {
+  const electionData = useElection();
+
   return (
     <>
-      <PendingRegions
-        regions={regions}
-      />
+      <PendingRegions regions={electionData.regions} />
 
       <PeruMap />
     </>

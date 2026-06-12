@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { electionData } from "../data/mockData";
+import { getElectionResults } from "../services/electionService";
 
 export default function useElectionData() {
   const [data, setData] = useState({
@@ -15,41 +16,45 @@ export default function useElectionData() {
   });
 
   useEffect(() => {
+    async function loadInitialData() {
+      try {
+        const apiData = await getElectionResults();
+
+        if (apiData) {
+          setData({
+            ...apiData,
+            history: apiData.history || [
+              {
+                time: new Date().toLocaleTimeString("es-PE"),
+                diff: apiData.difference,
+              },
+            ],
+          });
+        }
+      } catch (error) {
+        console.log("Usando datos simulados");
+      }
+    }
+
+    loadInitialData();
+
     const interval = setInterval(() => {
       setData((prev) => {
-        // Generar nuevos votos
-        const leftVotes =
-          prev.left.votes + Math.floor(Math.random() * 120);
-
-        const rightVotes =
-          prev.right.votes + Math.floor(Math.random() * 150);
+        const leftVotes = prev.left.votes + Math.floor(Math.random() * 120);
+        const rightVotes = prev.right.votes + Math.floor(Math.random() * 150);
 
         const totalVotes = leftVotes + rightVotes;
 
-        // Calcular porcentajes
-        const leftPercent = Number(
-          ((leftVotes / totalVotes) * 100).toFixed(3)
-        );
+        const leftPercent = Number(((leftVotes / totalVotes) * 100).toFixed(3));
+        const rightPercent = Number(((rightVotes / totalVotes) * 100).toFixed(3));
 
-        const rightPercent = Number(
-          ((rightVotes / totalVotes) * 100).toFixed(3)
-        );
+        const difference = Math.abs(rightVotes - leftVotes);
 
-        // Diferencia de votos
-        const difference = Math.abs(
-          rightVotes - leftVotes
-        );
-
-        // Nuevo punto para el gráfico
-        const newPoint = {
-          time: new Date().toLocaleTimeString("es-PE"),
-          diff: difference,
-        };
+        const now = new Date().toLocaleTimeString("es-PE");
 
         return {
           ...prev,
-
-          updatedAt: new Date().toLocaleTimeString("es-PE"),
+          updatedAt: now,
 
           left: {
             ...prev.left,
@@ -67,7 +72,10 @@ export default function useElectionData() {
 
           history: [
             ...(prev.history || []),
-            newPoint,
+            {
+              time: now,
+              diff: difference,
+            },
           ].slice(-20),
         };
       });
