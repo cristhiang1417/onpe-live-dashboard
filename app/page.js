@@ -1,3 +1,4 @@
+import TrendChart from "./components/TrendChart";
 import Header from "./components/Header";
 import CandidateCard from "./components/CandidateCard";
 import VsCenter from "./components/VsCenter";
@@ -33,6 +34,7 @@ export default function Home() {
         leftColor={electionData.left.color}
         rightColor={electionData.right.color}
       />
+      <TrendChart />
     </main>
   );
 }
