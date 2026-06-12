@@ -18,7 +18,7 @@ export default function MainDashboard() {
     <DashboardShell>
       <TopBar updatedAt={electionData.updatedAt} />
 
-      <ExecutiveDashboard electionData={electionData} />
+     <ExecutiveDashboard />
 
       <HeroSection />
 
