@@ -1,6 +1,6 @@
 {
-  "updatedAt": "5:46:00 p. m.",
-  "syncedAt": "5:51:10 p. m.",
+  "updatedAt": "6:12:00 p. m.",
+  "syncedAt": "6:16:12 p. m.",
   "electionName": "SEGUNDA VUELTA",
   "electionYear": "2026",
   "progress": 98.303,
@@ -8,7 +8,7 @@
     "name": "KEIKO SOFIA",
     "lastname": "FUJIMORI HIGUCHI",
     "percent": 50.01,
-    "votes": 9041604,
+    "votes": 9041771,
     "color": "#ff7a00",
     "party": "FUERZA POPULAR"
   },
@@ -16,15 +16,15 @@
     "name": "ROBERTO HELBERT",
     "lastname": "SANCHEZ PALOMINO",
     "percent": 49.99,
-    "votes": 9038095,
+    "votes": 9038155,
     "color": "#00d25b",
     "party": "JUNTOS POR EL PERÚ"
   },
-  "difference": 3509,
+  "difference": 3616,
   "history": [
     {
-      "time": "5:46:00 p. m.",
-      "diff": 3509
+      "time": "6:12:00 p. m.",
+      "diff": 3616
     }
   ],
   "stats": {
