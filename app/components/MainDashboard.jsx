@@ -18,25 +18,14 @@ export default function MainDashboard() {
     <DashboardShell>
       <TopBar updatedAt={electionData.updatedAt} />
 
-     <ExecutiveDashboard />
+      <ExecutiveDashboard />
 
       <HeroSection />
 
-      <OverviewSection
-        left={electionData.left}
-        right={electionData.right}
-        stats={electionData.stats}
-      />
+      <OverviewSection />
 
       <TwoColumnLayout
-        left={
-          <AnalyticsSection
-            regions={electionData.regions}
-            leftColor={electionData.left.color}
-            rightColor={electionData.right.color}
-            history={electionData.history || []}
-          />
-        }
+        left={<AnalyticsSection />}
         right={<LiveUpdates />}
       />
 
