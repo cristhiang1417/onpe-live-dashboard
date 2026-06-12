@@ -1,0 +1,61 @@
+{
+  "updatedAt": "5:42:00 p. m.",
+  "syncedAt": "5:46:11 p. m.",
+  "electionName": "SEGUNDA VUELTA",
+  "electionYear": "2026",
+  "progress": 98.303,
+  "left": {
+    "name": "KEIKO SOFIA",
+    "lastname": "FUJIMORI HIGUCHI",
+    "percent": 50.01,
+    "votes": 9041604,
+    "color": "#ff7a00",
+    "party": "FUERZA POPULAR"
+  },
+  "right": {
+    "name": "ROBERTO HELBERT",
+    "lastname": "SANCHEZ PALOMINO",
+    "percent": 49.99,
+    "votes": 9038095,
+    "color": "#00d25b",
+    "party": "JUNTOS POR EL PERÚ"
+  },
+  "difference": 3509,
+  "history": [
+    {
+      "time": "5:42:00 p. m.",
+      "diff": 3509
+    }
+  ],
+  "stats": {
+    "sent": 91192,
+    "pending": 9,
+    "total": 92766
+  },
+  "regions": [
+    {
+      "name": "LIMA",
+      "progress": 96.9,
+      "left": 63,
+      "right": 37
+    },
+    {
+      "name": "JUNIN",
+      "progress": 99.1,
+      "left": 45,
+      "right": 55
+    },
+    {
+      "name": "LA LIBERTAD",
+      "progress": 99.3,
+      "left": 58,
+      "right": 42
+    },
+    {
+      "name": "LAMBAYEQUE",
+      "progress": 99.6,
+      "left": 59,
+      "right": 41
+    }
+  ]
+}

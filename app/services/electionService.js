@@ -1,9 +1,17 @@
 export async function getElectionResults() {
-  const response = await fetch("/api/results");
+  const syncResponse = await fetch("/api/onpe/sync", {
+    cache: "no-store",
+  });
 
-  if (!response.ok) {
-    throw new Error("No se pudo obtener resultados");
+  if (!syncResponse.ok) {
+    throw new Error("No se pudo sincronizar con ONPE");
   }
 
-  return response.json();
+  const syncData = await syncResponse.json();
+
+  if (syncData.status !== "ok") {
+    throw new Error(syncData.message || "Error al sincronizar ONPE");
+  }
+
+  return syncData.data;
 }
