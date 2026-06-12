@@ -42,7 +42,7 @@ export default function Home() {
       />
       <TrendChart />
       <PendingRegions regions={electionData.regions} />
-      <PeruMap regions={electionData.regions} />
+      <PeruMap />
     </main>
   );
 }
