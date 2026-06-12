@@ -1,65 +1,179 @@
-import Image from "next/image";
-
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.js file.
+    <main className="min-h-screen bg-[#0b1020] text-white p-8">
+      {/* Header */}
+      <div className="flex justify-between items-center mb-8">
+        <div>
+          <span className="bg-red-600 px-3 py-1 rounded-full text-sm font-bold">
+            🔴 EN VIVO
+          </span>
+
+          <h1 className="text-4xl font-bold mt-4">
+            SEGUNDA VUELTA
           </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+
+          <p className="text-gray-400">
+            Elección Presidencial 2026
           </p>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+
+        <div className="text-right">
+          <p className="text-gray-400">
+            Última actualización
+          </p>
+
+          <h2 className="text-2xl font-bold">
+            21:35:12
+          </h2>
         </div>
-      </main>
-    </div>
+      </div>
+
+      {/* VS */}
+
+      <div className="grid grid-cols-3 gap-4 items-center">
+
+        {/* Izquierda */}
+
+        <div className="bg-[#131b30] rounded-3xl p-6 text-center">
+
+          <div className="w-32 h-32 rounded-full bg-orange-500 mx-auto mb-4"></div>
+
+          <h2 className="text-3xl font-bold">
+            KEIKO
+          </h2>
+
+          <h3 className="text-2xl">
+            FUJIMORI
+          </h3>
+
+          <div className="mt-6 text-6xl font-bold text-orange-400">
+            49.973%
+          </div>
+
+          <div className="mt-3 text-xl">
+            9,008,804 votos
+          </div>
+
+        </div>
+
+        {/* Centro */}
+
+        <div className="text-center">
+
+          <div className="text-7xl font-bold">
+            VS
+          </div>
+
+          <div className="mt-8">
+
+            <div className="text-6xl font-bold text-cyan-400">
+              97.92%
+            </div>
+
+            <div className="text-gray-400">
+              contabilizado
+            </div>
+
+          </div>
+
+          <div className="mt-10">
+
+            <div className="text-5xl font-bold">
+              9,788
+            </div>
+
+            <div className="text-gray-400">
+              votos de diferencia
+            </div>
+
+          </div>
+
+        </div>
+
+        {/* Derecha */}
+
+        <div className="bg-[#131b30] rounded-3xl p-6 text-center">
+
+          <div className="w-32 h-32 rounded-full bg-green-500 mx-auto mb-4"></div>
+
+          <h2 className="text-3xl font-bold">
+            ROBERTO
+          </h2>
+
+          <h3 className="text-2xl">
+            SANCHEZ
+          </h3>
+
+          <div className="mt-6 text-6xl font-bold text-green-400">
+            50.027%
+          </div>
+
+          <div className="mt-3 text-xl">
+            9,018,592 votos
+          </div>
+
+        </div>
+
+      </div>
+
+      {/* Barra */}
+
+      <div className="mt-10 h-6 rounded-full overflow-hidden flex">
+
+        <div
+          className="bg-orange-500"
+          style={{ width: "49.973%" }}
+        />
+
+        <div
+          className="bg-green-500"
+          style={{ width: "50.027%" }}
+        />
+
+      </div>
+
+      {/* Cards */}
+
+      <div className="grid grid-cols-3 gap-4 mt-8">
+
+        <div className="bg-[#131b30] rounded-2xl p-6 text-center">
+
+          <div className="text-4xl font-bold">
+            1,615
+          </div>
+
+          <div className="text-gray-400">
+            Actas enviadas
+          </div>
+
+        </div>
+
+        <div className="bg-[#131b30] rounded-2xl p-6 text-center">
+
+          <div className="text-4xl font-bold">
+            318
+          </div>
+
+          <div className="text-gray-400">
+            Pendientes
+          </div>
+
+        </div>
+
+        <div className="bg-[#131b30] rounded-2xl p-6 text-center">
+
+          <div className="text-4xl font-bold">
+            92,766
+          </div>
+
+          <div className="text-gray-400">
+            Total actas
+          </div>
+
+        </div>
+
+      </div>
+
+    </main>
   );
 }
