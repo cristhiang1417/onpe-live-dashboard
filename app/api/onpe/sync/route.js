@@ -1,17 +1,7 @@
 import { NextResponse } from "next/server";
-// import { writeElection } from "../../../lib/writeElection";
 
 export const dynamic = "force-dynamic";
 export const revalidate = 0;
-
-function getUrls() {
-  const now = Date.now();
-
-  return {
-    totalsUrl: `https://resultadosegundavuelta.onpe.gob.pe/presentacion-backend/resumen-general/totales?idEleccion=10&tipoFiltro=eleccion&_=${now}`,
-    participantsUrl: `https://resultadosegundavuelta.onpe.gob.pe/presentacion-backend/resumen-general/participantes?idEleccion=10&tipoFiltro=eleccion&_=${now}`,
-  };
-}
 
 const headers = {
   Accept: "application/json, text/plain, */*",
@@ -23,6 +13,27 @@ const headers = {
   "Sec-Fetch-Mode": "cors",
   "Sec-Fetch-Site": "same-origin",
 };
+
+const formatOptions = {
+  timeZone: "America/Lima",
+  hour: "numeric",
+  minute: "2-digit",
+  second: "2-digit",
+  hour12: true,
+};
+
+function getUrls() {
+  const now = Date.now();
+
+  return {
+    totalsUrl: `https://resultadosegundavuelta.onpe.gob.pe/presentacion-backend/resumen-general/totales?idEleccion=10&tipoFiltro=eleccion&_=${now}`,
+    participantsUrl: `https://resultadosegundavuelta.onpe.gob.pe/presentacion-backend/resumen-general/participantes?idEleccion=10&tipoFiltro=eleccion&_=${now}`,
+  };
+}
+
+function formatLimaTime(dateValue) {
+  return new Date(dateValue).toLocaleTimeString("es-PE", formatOptions);
+}
 
 function splitName(fullName) {
   const parts = fullName.split(" ");
@@ -82,11 +93,8 @@ export async function GET() {
       keiko.totalVotosValidos - roberto.totalVotosValidos
     );
 
-    const updatedAt = new Date(
-      totals.fechaActualizacion
-    ).toLocaleTimeString("es-PE");
-
-    const syncedAt = new Date().toLocaleTimeString("es-PE");
+    const updatedAt = formatLimaTime(totals.fechaActualizacion);
+    const syncedAt = formatLimaTime(new Date());
 
     const electionData = {
       updatedAt,
@@ -135,9 +143,6 @@ export async function GET() {
         { name: "LAMBAYEQUE", progress: 99.6, left: 59, right: 41 },
       ],
     };
-
-    // En Vercel no se escribe en archivos.
-// Solo devolvemos la data en tiempo real.
 
     return NextResponse.json({
       status: "ok",
