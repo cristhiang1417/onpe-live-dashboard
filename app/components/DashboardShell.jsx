@@ -1,9 +1,9 @@
 export default function DashboardShell({ children }) {
   return (
-    <div className="min-h-screen bg-[#0b1020] text-white">
-      <div className="mx-auto max-w-[1800px] p-6 md:p-8">
+    <main className="min-h-screen bg-[#080d1c] text-white px-4 py-6 md:px-8 lg:px-10">
+      <div className="w-full max-w-[1600px] mx-auto space-y-6">
         {children}
       </div>
-    </div>
+    </main>
   );
 }
