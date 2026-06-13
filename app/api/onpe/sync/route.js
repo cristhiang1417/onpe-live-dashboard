@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { writeElection } from "../../../lib/writeElection";
+// import { writeElection } from "../../../lib/writeElection";
 
 export const dynamic = "force-dynamic";
 export const revalidate = 0;
@@ -136,7 +136,8 @@ export async function GET() {
       ],
     };
 
-    writeElection(electionData);
+    // En Vercel no se escribe en archivos.
+// Solo devolvemos la data en tiempo real.
 
     return NextResponse.json({
       status: "ok",
